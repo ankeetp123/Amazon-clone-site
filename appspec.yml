@@ -2,12 +2,13 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /var/www/html
+    destination: /home/ubuntu/Amazon-clone-site
 
 hooks:
   BeforeInstall:
     - location: scripts/cleanup.sh
-      runas: root
+      timeout: 300
+      runas: ubuntu
   AfterInstall:
     - location: scripts/restart_server.sh
       timeout: 300
