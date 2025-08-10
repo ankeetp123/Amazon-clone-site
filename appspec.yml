@@ -5,7 +5,7 @@ files:
     destination: /var/www/html
 hooks:
   BeforeInstall:
-    - location: scripts/clean_html.sh
+    - location: scripts/cleanup.sh
       timeout: 300
       runas: root
   AfterInstall:
