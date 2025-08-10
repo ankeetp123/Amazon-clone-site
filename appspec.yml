@@ -3,11 +3,13 @@ os: linux
 files:
   - source: /
     destination: /var/www/html
-    overwrite: true
-  - source: scripts/
-    destination: /scripts
 hooks:
-  AfterInstall:
-    - location: /scripts/restart_server.sh
+  BeforeInstall:
+    - location: scripts/clean_html.sh
       timeout: 300
       runas: root
+  AfterInstall:
+    - location: scripts/restart_server.sh
+      timeout: 300
+      runas: root
+
